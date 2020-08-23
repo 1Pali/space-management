@@ -3,6 +3,7 @@ package com.my.spacemanagement.service;
 import com.google.common.collect.ImmutableList;
 import com.my.spacemanagement.model.Repository.SpaceRepository;
 import com.my.spacemanagement.model.entity.Space;
+import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,12 @@ public class SpaceServiceImpl implements SpaceService {
 
     @Override
     public List<Space> getAllSpaces() {
-        return ImmutableList.copyOf(spaceRepository.findAll());
+         List<Space> list = ImmutableList.copyOf(spaceRepository.findAll());
+        return list;
+    }
+
+    @Override
+    public Space addSpace(Space space) {
+        return spaceRepository.save(space);
     }
 }

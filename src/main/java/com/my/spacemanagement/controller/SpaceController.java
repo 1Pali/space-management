@@ -1,11 +1,11 @@
 package com.my.spacemanagement.controller;
 
+import javax.validation.Valid;
+
 import com.my.spacemanagement.model.entity.Space;
 import com.my.spacemanagement.service.SpaceService;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +21,10 @@ public class SpaceController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Space> getAllSpaces() {
         return spaceService.getAllSpaces();
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Space addSpace(@Valid @RequestBody Space space) {
+        return spaceService.addSpace(space);
     }
 }

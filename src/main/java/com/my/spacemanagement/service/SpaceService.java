@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SpaceService {
     List<Space> getAllSpaces();
+    Space addSpace(final Space space);
 }
